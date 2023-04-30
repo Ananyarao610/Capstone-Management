@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="Admission/base::layout(~{::section})">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>This is Student Registration page</title>
+</head>
+
+<body>
+	<section>
+			<div class="card">
+				<div class="container card-header text-center">
+					<h2>Weekly Review</h2>
+				</div>
+				<div class="card-body">
+					<div class="container">
+						<div th:if="${session.message}" th:classappend="${session.message.type}" class="alert"
+							role="alert">
+							<p th:text="${session.message.content}"></p>
+							<th:block th:text="${#session.removeAttribute('message')}"></th:block>
+						</div>
+
+					<form class="row g-3" action="#" th:object="${students}"
+						enctype="multipart/form-data" method="POST"
+						th:action="@{/Admission/st-register}">
+						<div class="col-md-6">
+							<label class="form-label">Upload your Weekly Report</label> <input
+								name="image"  type="file" class="form-control"
+								id="inputfile">
+						</div>
+						<div class="col-md-6">
+						<!--
+						</div>
+						<div class="col-md-6">
+							<label for="inputEmail4" class="form-label">Student Name</label> <input
+								name="firstName" required type="text" class="form-control"
+								id="inputEmail4">
+						</div>
+						<div class="col-md-6">
+							<label for="inputPassword4" class="form-label">Team Name</label>
+							<input name="lastName" required type="text" class="form-control"
+								id="inputPassword4">
+						</div>
+						<div class="col-6">
+							<label for="inputAddress" class="form-label"> Title of Project
+								</label> <input name="permanentAddress" required type="text"
+								class="form-control" id="inputAddress">
+								
+						</div>
+						<div class="col-6">
+							<label for="inputCity" class="form-label">Guide Name</label> <input
+								name="nationality" type="text" required class="form-control"
+								id="inputCity">
+							
+						</div>
+						<div class="col-6">
+							<label for="inputAddress2" class="form-label">Domain of project</label> <input name="maillingAddress" required type="text"
+								class="form-control" id="inputAddress2">
+								
+						</div>
+						-->
+
+						<div class="col-6">
+							<label for="inputAddress2" class="form-label">Progress in implementation</label> <input name="maillingAddress" required type="text"
+								class="form-control" id="inputAddress2">
+								
+						</div>
+						<br>
+						<div class="col-md-6">
+							<label for="inputCity" class="form-label">Date of
+								Submission</label> <input name="date" required type="date"
+								class="form-control" id="inputCity">
+						</div>
+						
+						
+						<br>
+						<br>
+
+						<div class="col-12 text-center">
+							<button type="submit" name="" class="btn btn-outline-primary">Submit</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+</html>
